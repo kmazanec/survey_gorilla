@@ -1,12 +1,12 @@
-/* color palette: https://kuler.adobe.com/Zoo-Color-Palette-color-theme-2851379/edit/?copy=true&base=2&rule=Custom&selected=2&name=Copy%20of%20Zoo%20Color%20Palette&mode=rgb&rgbvalues=0.47843137254901963,0.7529411764705882,0.6588235294117647,0.9490196078431372,0.8784313725490196,0.6941176470588235,0.9411764705882353,0.6078431372549019,0.17647058823529413,0.9411764705882353,0.45098039215686275,0.08235294117647059,0.3568627450980392,0.25098039215686274,0.1843137254901961&swatchOrder=0,1,2,3,4 */
+/* color palette: https://kuler.adobe.com/Zoo-Color-Palette-color-theme-2851379/ */
 
 body {
   background-color: #F2E0B1;
 }
 
 .container {
-  margin: 20px auto;
-  width: 600px;
+  margin: 70px auto;
+  width: 800px;
   padding: 0px 20px 20px 20px;
 
 }
@@ -14,12 +14,40 @@ th {
   text-align: left;
 }
 
-
-nav {
+.nav_container {
   height: 50px;
   background-color: #5B402F;
   position: fixed;
   top: 0;
   right: 0;
   left: 0;
+}
+
+nav {
+  width: 800px;
+  margin: 0 auto;
+}
+
+nav h1 {
+  margin: 10px 0;
+  padding: 0;
+  float: left;
+  color: #F07315;
+  font-size: 28px;
+}
+
+nav ul {
+  float: right;
+  list-style: none;
+}
+
+nav ul li {
+  display: inline-block;
+  color: #7AC0A8;
+  margin: 0 20px;
+}
+
+nav ul li a {
+  color: #7AC0A8;
+
 }
