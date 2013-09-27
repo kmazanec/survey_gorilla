@@ -1,3 +1,4 @@
+enable :sessions
 
 # ====== GET ROUTES ========================
 
@@ -18,15 +19,7 @@ get '/profile' do
   erb :profile
 end
 
-get '/login' do
 
-  erb :login
-end
-
-get '/logout' do
-  session.clear
-  redirect to '/login'
-end
 
 get '/survey/:survey_id' do
 
@@ -43,21 +36,14 @@ end
 # ====== POST ROUTES ========================
 
 
-post '/login' do
 
-  redirect to '/'
-end
 
 post '/survey/:survey_id' do
 
   redirect to "/survey/#{params[:survey_id]}/results"
 end
 
-post '/signup' do
 
-
-  redirect to '/'
-end
 
 
 post '/create_survey' do
