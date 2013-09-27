@@ -1,9 +1,23 @@
+body {
+  background-color: #F2E0B1;
+}
+
 .container {
   margin: 20px auto;
   width: 600px;
   padding: 0px 20px 20px 20px;
-  border: 1px dotted black;
+
 }
 th {
   text-align: left;
+}
+
+
+nav {
+  height: 50px;
+  background-color: #5B402F;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
 }
