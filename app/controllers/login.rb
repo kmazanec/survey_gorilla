@@ -2,8 +2,11 @@
 # ======= GET =====================
 
 get '/login' do
-
-  erb :login
+  if session[:user_id]
+    redirect to "/"
+  else
+    erb :login
+  end
 end
 
 get '/logout' do
@@ -16,12 +19,25 @@ end
 
 post '/login' do
 
-  redirect to '/'
+  user = User.find_by(email: params[:email])
+  if user && user.password == params[:password]
+    session[:user_id] = user.id
+    redirect to "/"
+  else
+    redirect to "/login"
+  end
 end
 
 post '/signup' do
+  user = User.new(params[:user])
+  user.password = params[:password]
+  user.password_confirmation = params[:password_confirmation]
 
-
-  redirect to '/'
+  if user.save
+    session[:user_id] = user.id
+    redirect to '/'
+  else
+    redirect to "/login"
+  end
 end
 
