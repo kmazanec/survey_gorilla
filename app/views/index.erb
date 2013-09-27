@@ -3,20 +3,32 @@
   
   <div>
     <a href="/create_survey">
-      <div>
+      <div>Create A New Survey
       </div>
     </a>
   </div>
   
+  <% if @surveys %>
   <div>
     <h3>Polls to take...</h3>
-    <ul>
-      <li>Survey 1</li>
-      <li>Survey 2</li>
-      <li>Survey 3</li>
-      <li>Survey 4</li>
-    </ul>
+    <table>
+        <thead>
+          <th>Survey Name</th>
+          <th># of Questions</th>
+          <th>Creator</th>
+          <th># Times Taken</th>
+        </thead>
+      <% @surveys.each do |survey| %>
+        <tr>
+          <td><a href="/survey/<%= survey.id %>"><%= survey.name %></a></td>
+          <td><%= survey.questions.count %></td>
+          <td><%= survey.creator.username %></td>
+          <td><%= survey.taken_surveys.count %></td>
+        </tr>
+      <% end %>
+    </table>
   </div>
+  <% end %>
 
 
 </div>
