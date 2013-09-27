@@ -1,0 +1,29 @@
+  <h1>Sign In</h1>
+
+  <% if @error %>
+    <div class="errors"><%= @error %></div>
+  <% end %>
+
+  <form id="sign-in" method="post" action="/sessions">
+    <label class="label" for="email">Email</label>
+    <input type="email" name="email" placeholder="e.g., me@example.com" value=""><br>
+    <label class="label" for="password">Password</label>
+    <input type="password" name="password" placeholder="6 or more characters">
+    <br>
+    <div class="submit"><input type="submit" value="Sign In"></div>
+  </form>
+
+
+  <h1>Sign Up</h1>
+
+  <form id="create_submit" action="/signup" method="POST">
+    <label for="name">Name
+    <input id="name" type="text" name="user[name]"></label>
+    <label for="email">Email
+    <input id="email" type="text" name="user[email]"></label>
+    <label for="password">Password
+    <input id="password" type="password" name="password"></label>
+    <label for="password_confirmation">Confirm Password
+    <input id="password_confirmation" type="password" name="password_confirmation"></label>
+    <input type="submit" value="Create Account">
+  </form>

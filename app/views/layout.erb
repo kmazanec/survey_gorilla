@@ -18,6 +18,24 @@
   <title></title>
 </head>
 <body>
-  <%= yield %>
+  <nav>
+    <h1>Survey Gorilla</h1>
+    <ul>
+      <li>Home</li>
+      <li>Create Survey</li>
+      <li>My Surveys</li>
+        <!-- v2, add in a drop down menu with all the surveys the user has created -->
+      <li>Profile</li>
+      <li>Logout</li>
+    </ul>
+  </nav>
+
+  <div class="container">
+    <%= yield %>
+  </div>
+
+  <footer>
+    <h4>Copynone 2013</h4>
+  </footer>
 </body>
 </html>
