@@ -12,7 +12,7 @@ class Question < ActiveRecord::Base
       if self.options.length < 2
         errors.add(:options, "Question must have at least two options!") 
       end
-
     end  
+    
 
 end
