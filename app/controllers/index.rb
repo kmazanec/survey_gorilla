@@ -27,7 +27,8 @@ get '/profile' do
   if session[:user_id]
     @user = User.find(session[:user_id])
     @surveys = User.find(session[:user_id]).created_surveys
-    @take_surveys = User.find(session[:user_id]).taken_surveys
+    @taken_surveys = User.find(session[:user_id]).taken_surveys
+    
     erb :profile
   else
     redirect to "/login"
@@ -80,7 +81,7 @@ post '/survey/:survey_id' do
 
 
   Survey.find(params[:survey_id]).questions.each do |question|
-    new_taken_survey.choices << Choice.create(option_id: Option.find(params[question.id.to_s.to_sym].to_i).id)
+    new_taken_survey.choices << Choice.create(option_id: Option.find(params[question.id.to_s.to_sym].to_i).id, question: question)
   end
 
 

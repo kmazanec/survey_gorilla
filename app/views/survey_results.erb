@@ -1,4 +1,4 @@
-<div>
+<div class="results_container">
   <h2>Results from your Survey</h2>
 
   <h3>Survey Name: <%= @survey.name %></h3>
@@ -6,11 +6,11 @@
 <table>
   <thead>
     <th><%=q.text %></th>
-    <th><%=q.options.first.text %></th>
-    <th><%=q.options.second.text %></th>
+    <th># of times <%=q.options.first.text %> was chosen</th>
+    <th># of times <%=q.options.second.text %> was chosen</th>
   </thead>
     <tr>
-      <td>Results:</td>
+      <td>Total Results:</td>
       <td><%= q.options.first.choices.length %></td>
       <td><%= q.options.second.choices.length %></td>
     </tr>  
