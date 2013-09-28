@@ -2,11 +2,11 @@
   <h3><%= @survey.name %></h3>
 
   <% @survey.questions.each do |question| %>
-  <form>
+  <form action="/survey/<%= @survey.id %>" method="POST">
     <h4><%= question.text %></h4>
     <div>
       <% question.options.each do |option| %>
-        <span><input type="radio" name="<%= option.id %>" ><%= option.text %></span>
+        <span><input type="radio" name="<%= question.id %>" value="<%= option.id %>" ><%= option.text %></span>
       <% end %>
     </div>
 
