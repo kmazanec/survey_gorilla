@@ -1,3 +1,4 @@
+<div class="signin_container"> 
   <h1>Sign In</h1>
 
   <% if @error %>
@@ -6,9 +7,9 @@
 
   <form id="login" action="/login" method="POST">
     <label class="label" for="email">Email</label>
-    <input type="email" name="email" placeholder="e.g., me@example.com" value=""><br>
+    <input type="email" name="email" placeholder="email" value=""><br>
     <label class="label" for="password">Password</label>
-    <input type="password" name="password" placeholder="6 or more characters">
+    <input type="password" name="password" placeholder="password">
     <br>
     <div class="submit"><input type="submit" value="Sign In"></div>
   </form>
@@ -17,13 +18,14 @@
   <h1>Sign Up</h1>
 
   <form id="signup" action="/signup" method="POST">
-    <label for="username">Username
-      <input id="username" type="text" name="user[username]"></label>
-    <label for="email">Email
-      <input id="email" type="text" name="user[email]"></label>
-    <label for="password">Password
-      <input id="password" type="password" name="password"></label>
-    <label for="password_confirmation">Confirm Password
-      <input id="password_confirmation" type="password" name="password_confirmation"></label>
+    <label for="username">Username</label>
+      <input id="username" type="text" name="user[username]" placeholder="username"><br>
+    <label for="email">Email</label>
+      <input id="email" type="text" name="user[email]" placeholder="email"><br>
+    <label for="password">Password</label>
+      <input id="password" type="password" name="password" placeholder="password"><br>
+    <label for="password_confirmation">Confirm Password</label>
+      <input id="password_confirmation" type="password" name="password_confirmation" placeholder="password again"><br>
     <input type="submit" value="Create Account">
   </form>
+</div>
