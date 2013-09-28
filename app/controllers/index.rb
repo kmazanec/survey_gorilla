@@ -6,7 +6,7 @@ enable :sessions
 get '/' do
   if session[:user_id]
     @surveys = Survey.all
-
+    @user = User.find(session[:user_id])
 
     erb :index
   else
@@ -28,9 +28,8 @@ end
 
 get '/profile' do
   if session[:user_id]
-
-
-
+    @surveys = User.find(session[:user_id]).created_surveys
+    @take_surveys = User.find(session[:user_id]).taken_surveys
     erb :profile
   else
     redirect to "/login"
