@@ -63,9 +63,20 @@ end
 
 
 post '/survey/:survey_id' do
-  
+  puts "======================================"
+  puts params.inspect
+  puts "======================================"
+  puts
 
-  
+  new_taken_survey = TakenSurvey.new(taker_id: session[:user_id], survey_id: params[:survey_id])
+
+
+  Survey.find(params[:survey_id]).questions.each do |question|
+    new_taken_survey.choices << Choice.create(option_id: Option.find(params[question.id.to_s.to_sym].to_i).id)
+  end
+
+
+  new_taken_survey.save
 
   redirect to "/survey/#{params[:survey_id]}/results"
 end
@@ -74,10 +85,7 @@ end
 
 
 post '/create_survey' do
-  puts "======================================"
-  puts params.inspect
-  puts "======================================"
-  puts
+
 
   new_survey = Survey.new(name: params[:name], creator_id: session[:user_id])
   new_question = Question.new(text: params[:question])
