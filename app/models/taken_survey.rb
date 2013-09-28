@@ -3,7 +3,8 @@ class TakenSurvey < ActiveRecord::Base
   belongs_to :survey  
   has_one :creator, through: :survey
   has_many :choices
-
+  
+  validates :name, presence: true
   validate :survey_complete
 
   def survey_complete
