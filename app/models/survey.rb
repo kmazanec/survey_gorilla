@@ -7,7 +7,7 @@ class Survey < ActiveRecord::Base
   validate :one_question
 
  def one_question
-   errors.add(:questions,": the survey must have at least one question!") if self.questions.length <= 1
+   errors.add(:questions,": the survey must have at least one question!") if self.questions.length = 1
  end 
 
 

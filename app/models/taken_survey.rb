@@ -7,6 +7,7 @@ class TakenSurvey < ActiveRecord::Base
   validate :survey_complete
 
   def survey_complete
-     error.add(:survey,"The survey must be complete!") if self.choices.length != self.survey.questions.length
+     errors.add(:surveys,"The survey must be complete!") if self.choices.length != self.survey.questions.length
   end
+
 end
