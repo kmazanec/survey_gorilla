@@ -4,6 +4,7 @@ source :rubygems
 gem 'pg'
 
 gem 'bcrypt-ruby','~> 3.0.0'
+gem 'faker'
 
 # Sinatra driver
 gem 'sinatra'
