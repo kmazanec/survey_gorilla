@@ -1,0 +1,13 @@
+<div class="signin_container">
+  <h1>Next Question!</h1>
+  <form action="/create_question" method="POST">
+    <label for="question">Question:</label> 
+      <%= erb :_question %>
+      <input type="hidden" name="survey_id" value="<%= @survey.id %>">
+    <input type="submit" value="Add Question">
+  </form>
+  <form action="/profile">
+    <input type="submit" value="submit_form">
+  </form>
+
+</div>
