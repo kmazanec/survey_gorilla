@@ -37,9 +37,7 @@ end
 
 get '/survey/:survey_id' do
   if session[:user_id]
-
-
-
+    @survey = Survey.find(params[:survey_id])
     erb :take_survey
   else
     redirect to "/login"
@@ -65,6 +63,9 @@ end
 
 
 post '/survey/:survey_id' do
+  
+
+  
 
   redirect to "/survey/#{params[:survey_id]}/results"
 end
