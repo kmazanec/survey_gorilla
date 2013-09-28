@@ -1,22 +1,22 @@
-<div>
+<div class="surveys_container">
   <h1>Welcome <%= @user.username %></h1>
-  
   <div>
     <a href="/create_survey">
-      <div>Create A New Survey
+      <div class="create_button">Create Survey
       </div>
     </a>
   </div>
+
   
   <% if @surveys %>
-  <div>
+  <div class="survey_list_container">
     <h3>Polls to take...</h3>
     <table>
         <thead>
           <th>Survey Name</th>
-          <th># of Questions</th>
+          <th># of Q's</th>
           <th>Creator</th>
-          <th># Times Taken</th>
+          <th># Resp.</th>
         </thead>
       <% @surveys.each do |survey| %>
         <tr>
