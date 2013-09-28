@@ -1,14 +1,18 @@
 <div>
-  <h3>Survey Name</h3>
-  <h4>Question: </h4>
+  <h3><%= @survey.name %></h3>
 
-  <div>
-    <form>
-      <span><input type="radio" name="question1"  value="option1">Option 1</span>
-      <span><input type="radio" name="question1"  value="option2">Option 2</span>
-      <span><input type="submit"></span>
-    </form>
-  </div>
+  <% @survey.questions.each do |question| %>
+  <form>
+    <h4><%= question.text %></h4>
+    <div>
+      <% question.options.each do |option| %>
+        <span><input type="radio" name="<%= option.id %>" ><%= option.text %></span>
+      <% end %>
+    </div>
+
+    <% end %>
+  <span><input type="submit"></span>
+  </form>
 
 
 </div>
