@@ -1,38 +1,73 @@
 /* color palette: https://kuler.adobe.com/Zoo-Color-Palette-color-theme-2851379/ */
 
 body {
-  background-color: #F2E0B1;
+  background-color: #B2DCE0;
+  background: url("../World_Africa_Storm_over_the_Savannah___Masai_Mara_Reserve___Kenya___Africa_008888_.jpg") no-repeat center center fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+}
+
+
+h1 {
+  padding: 0;
+  font-size: 28px;
+  color: #021A31;
+  font-weight: lighter;
+}
+
+input {
+  opacity: 0.7;
+  border: 0;
+  border-radius: 4px;
+  font-size: 20px;
+  padding: 10px;
+  margin: 4px auto;
+}
+
+label {
+  display: none;
 }
 
 .container {
   margin: 70px auto;
   width: 800px;
-  padding: 0px 20px 20px 20px;
-
 }
+
 th {
   text-align: left;
 }
 
+
+.signin_container {
+  margin: 0 auto;
+  text-align: center;
+}
+
+
+/* ========= NAV ========================*/
+
 .nav_container {
+  z-index: 1;
   height: 50px;
-  background-color: #5B402F;
+  background-color: #021A31;
   position: fixed;
   top: 0;
   right: 0;
   left: 0;
 }
-
 nav {
   width: 800px;
   margin: 0 auto;
+  opacity: 0.8;
 }
 
 nav h1 {
   margin: 10px 0;
   padding: 0;
   float: left;
-  color: #F07315;
+  color: #B7CDE2;
   font-size: 28px;
 }
 
@@ -43,11 +78,39 @@ nav ul {
 
 nav ul li {
   display: inline-block;
-  color: #7AC0A8;
+  color: #B7CDE2;
   margin: 0 20px;
 }
 
 nav ul li a {
-  color: #7AC0A8;
+  color: #B7CDE2;
 
 }
+
+
+/* ============  LOGIN/ SIGNUP ==========================*/
+
+
+
+
+
+
+
+
+
+
+
+/*  ================= FOOTER ================ */
+
+footer {
+  clear: both;
+  margin: 20px auto;
+  height: 20px;
+  position: fixed;
+  bottom: 0;
+}
+
+
+
+
+
