@@ -1,10 +1,21 @@
-<div>
+<div class="results_container">
   <h2>Results from your Survey</h2>
 
-  <h3>Survey Name goes here</h3>
-
-  <p>Survey data goes here</p>
-
+  <h3>Survey Name: <%= @survey.name %></h3>
+<% @questions.each do |q|%>
+<table>
+  <thead>
+    <th><%=q.text %></th>
+    <th># of times <%=q.options.first.text %> was chosen</th>
+    <th># of times <%=q.options.second.text %> was chosen</th>
+  </thead>
+    <tr>
+      <td>Total Results:</td>
+      <td><%= q.options.first.choices.length %></td>
+      <td><%= q.options.second.choices.length %></td>
+    </tr>  
+</table>
+<%end%>
 
 
 

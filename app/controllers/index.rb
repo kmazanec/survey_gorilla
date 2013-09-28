@@ -25,13 +25,22 @@ end
 
 get '/profile' do
   if session[:user_id]
+    @user = User.find(session[:user_id])
     @surveys = User.find(session[:user_id]).created_surveys
-    @take_surveys = User.find(session[:user_id]).taken_surveys
+    @taken_surveys = User.find(session[:user_id]).taken_surveys
+    
     erb :profile
   else
     redirect to "/login"
   end
 end
+
+get '/next_question/:id' do
+  @survey =Survey.find(params[:id])
+  
+  erb :new_question
+
+end 
 
 
 
@@ -47,8 +56,8 @@ end
 
 get '/survey/:survey_id/results' do
   if session[:user_id]
-
-
+    @survey = Survey.find(params[:survey_id])
+    @questions = @survey.questions
 
     erb :survey_results
   else
@@ -72,7 +81,7 @@ post '/survey/:survey_id' do
 
 
   Survey.find(params[:survey_id]).questions.each do |question|
-    new_taken_survey.choices << Choice.create(option_id: Option.find(params[question.id.to_s.to_sym].to_i).id)
+    new_taken_survey.choices << Choice.create(option_id: Option.find(params[question.id.to_s.to_sym].to_i).id, question: question)
   end
 
 
@@ -98,7 +107,9 @@ post '/create_survey' do
   new_survey.questions << new_question
 
   new_survey.save
+  new_survey
 
+  redirect "/next_question/#{new_survey.id}"
   puts "======================================"
   puts "New Survey: #{new_survey.inspect}"
   puts "New Question: #{new_question.inspect}"
@@ -107,5 +118,25 @@ post '/create_survey' do
 
 
 
-  redirect to '/profile'
+  # redirect to '/profile'
 end
+
+post '/create_question' do
+   survey= Survey.find(params[:survey_id])
+   new_question = Question.new(text: params[:question])
+
+   params[:options].each_value do |option_text|
+     new_question.options << Option.create(text: option_text)
+   end
+
+  new_question.save
+  survey.questions << new_question
+
+  p survey.questions
+
+  redirect "/next_question/#{survey.id}"
+  
+
+end  
+
+
