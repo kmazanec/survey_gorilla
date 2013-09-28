@@ -77,6 +77,11 @@ post '/survey/:survey_id' do
   puts "======================================"
   puts
 
+  if TakenSurvey.find_by(taker_id: session[:user_id], survey_id: params[:survey_id])
+    redirect to "/survey/#{params[:survey_id]}/results"
+    puts "This user has already taken that survey!"
+  end
+
   new_taken_survey = TakenSurvey.new(taker_id: session[:user_id], survey_id: params[:survey_id])
 
 
