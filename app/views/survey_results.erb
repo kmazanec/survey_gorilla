@@ -6,13 +6,18 @@
 <table>
   <thead>
     <th><%=q.text %></th>
-    <th># of times <%=q.options.first.text %> was chosen</th>
-    <th># of times <%=q.options.second.text %> was chosen</th>
+    <%q.options.each do |o|%>
+
+    <th># of times <%=o.text %> was chosen</th>
+    <%end%>
   </thead>
     <tr>
       <td>Total Results:</td>
-      <td><%= q.options.first.choices.length %></td>
-      <td><%= q.options.second.choices.length %></td>
+      <%q.options.each do |o|%>
+      <td><%= o.choices.length %></td>
+      <%end%>
+
+
     </tr>  
 </table>
 <%end%>
