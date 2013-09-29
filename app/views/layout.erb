@@ -13,6 +13,8 @@
   <link rel="stylesheet" href="/css/application.css">
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script src="/js/jquery-ui-1.10.3.custom.js"></script>
+  <script src="/js/jquery-ui-1.10.3.custom.min.js"></script>
   <script src="/js/application.js"></script>
 
   <title></title>
@@ -21,6 +23,7 @@
   <div class="nav_container">
     <nav>
       <h1>Polling Primate</h1>
+      <% if session[:user_id] %>
       <ul>
         <li><a href="/">Home</a></li>
         <li><a href="/create_survey">Create Survey</a></li>
@@ -29,6 +32,7 @@
         <li><a href="/profile">Profile</a></li>
         <li><a href="/logout">Logout</a></li>
       </ul>
+      <% end %>
     </nav>
   </div>
   <div class="container">
