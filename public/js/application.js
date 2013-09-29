@@ -23,6 +23,8 @@ function checkQuestionComplete(){
 }
 
 
+// ============= DOCUMENT READY ================================= //
+
 $(document).ready(function() {
 
   $("#signup_toggle").on("click", function(event){
@@ -40,28 +42,45 @@ $(document).ready(function() {
 
   $("#survey_next").on("submit", function(event){
     event.preventDefault();
-    var current_question = $(".current_question");
-    if (checkQuestionComplete()) {
+
+    if ( checkQuestionComplete() ) {
       $("#incomplete_question_alert").hide();
-
-      if (current_question.next().next().hasClass('end_of_questions')) {
-        displaySubmitButton();
-        displayNextQuestion(current_question);
-      } else {
-        displayNextQuestion(current_question);
-      }
-    }
-    else {
+    } else {
       $("#incomplete_question_alert").show();
+      return false;
+    }
+
+    var current_question = $(".current_question");
+    if (current_question.next().next().next().hasClass('end_of_questions')) {
+      displaySubmitButton();
+      displayNextQuestion(current_question);
+    } else {
+      displayNextQuestion(current_question);
     }
   })
 
-  $("survey").on("submit", function(event){
+  $("#survey").on("submit", function(event){
     event.preventDefault();
+    if ( checkQuestionComplete() ) {
+      $("#incomplete_question_alert").hide();
+    } else {
+      $("#incomplete_question_alert").show();
+      return false;
+    }
 
+    var formdata = $('#survey').serialize();
+    var url = $("#survey").attr("action");
+
+    $.post(url, formdata, function(response){
+      console.log(response);
+      // NEED TO MAKE THE PAGE GO TO THE RIGHT PLACE
+      // DOES NOTHING RIGHT NOW
+    });
 
 
   })
+
+  
 
 
 
