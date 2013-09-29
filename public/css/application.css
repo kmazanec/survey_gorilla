@@ -116,6 +116,26 @@ nav ul li a {
   text-align: center;
 }
 
+#signin_area {
+  display: normal;
+}
+
+#signup_area {
+  display: none;
+}
+
+/*#signin_toggle:hover {
+  text-decoration: underline;
+}*/
+
+#signup_toggle:hover {
+  text-decoration: underline;
+}
+
+#or {
+  margin: 50px auto;
+}
+
 
 /* ==================== SURVEYS ====================== */
 
