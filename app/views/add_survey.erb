@@ -1,0 +1,29 @@
+<div class="new_survey_container">
+  <h1>Create a new survey!</h1>
+
+  <h3 id="new_survey_name">Untitled Survey</h3>
+
+  <form id="new_survey" action="/create_survey" method="POST">
+    <input id="survey_name" type="text" name="name" placeholder="Survey Name">
+
+    <div class="new_question">
+      <input type="text" name="questions[1]" placeholder="Question?"><br>
+      <input type="text" name="options[1][1]" placeholder="Option 1"><br>
+      <input type="text" name="options[1][2]" placeholder="Option 2"><br>
+    </div>
+
+
+    <div id="add_option">
+      <a>Add Option</a>
+    </div>
+    <div id="add_question">
+      <a>Add Question</a>
+    </div>
+
+    <div id="submit_survey">
+      <input type="submit" value="Submit Survey">
+    </div>
+
+  </form>
+
+</div>
