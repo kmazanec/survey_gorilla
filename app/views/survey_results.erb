@@ -8,11 +8,11 @@
     <th><a href="/charts/<%=q.id %>"><%=q.text %></th>
     <%q.options.each do |o|%>
 
-    <th># of times <%=o.text %> was chosen</th>
+    <th><%=o.text %></th>
     <%end%>
   </thead>
     <tr>
-      <td>Total Results:</td>
+      <td>Results:</td>
       <%q.options.each do |o|%>
       <td><%= o.choices.length %></td>
       <%end%>

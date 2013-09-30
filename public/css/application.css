@@ -184,7 +184,7 @@ nav ul li a {
 .create_button {
   width: 175px;
   height: 18px;
-  background: #888;
+  background: #999;
   float: right;
   margin: 8px 0;
   text-align: center;
@@ -198,6 +198,61 @@ a .create_button {
 }
 a .create_button:hover {
   background: #8280BC;
+}
+
+
+/* =================== CREATING SURVEYS ========== */
+
+.new_survey_container {
+  margin: 0 25%;
+}
+
+#new_survey {
+  margin: 0 auto;
+}
+
+#new_survey h3 {
+  color: #fff;
+}
+
+#new_survey input {
+  width: 95%;
+}
+
+#submit_survey input {
+  width: 100%;
+}
+
+.new_question {
+  margin: 40px auto 0 auto;
+}
+
+.add {
+  background: #bbb;
+  opacity: 0.7;
+  width: 33%;  
+  margin: 18px 0;
+  text-align: center;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 5px;
+  color: #021A31;
+}
+.add:hover {
+  background: #8280BC;
+
+}
+
+#add_option {
+  float: left;
+}
+
+#add_question {
+  float: right;
+}
+
+.new_question input:first-child {
+  background: #D5CDFF;
 }
 
 
@@ -229,6 +284,7 @@ th, td {
   padding: 20px;
 }
 
+
 /*  ================= FOOTER ================ */
 
 footer {
@@ -240,10 +296,16 @@ footer {
 }
 /****chart**************/
 
+#legend {
+  background-color: white;
+  opacity: 0.8;
+}
+
 #ph{
-  width:500px;
+  width:800px;
   height:300px;
-  background-color: white
+  background-color: white;
+  opacity: 0.8;
 }
 
 
