@@ -16,7 +16,8 @@ end
 
 get '/create_survey' do
   if session[:user_id]
-    erb :create_survey
+    # erb :create_survey
+    erb :add_survey
   else
     redirect to "/login"
   end
@@ -99,31 +100,50 @@ end
 
 
 post '/create_survey' do
+  puts "========== Create survey ============================"
 
+  puts params.inspect
 
   new_survey = Survey.new(name: params[:name], creator_id: session[:user_id])
-  new_question = Question.new(text: params[:question])
-  
-  params[:options].each_value do |option_text|
-    new_question.options << Option.create(text: option_text)
+
+
+  params[:questions].each do |q|
+    puts "Question: #{q}"
+    new_question = Question.new(text: q.last)
+    params[:options][q.first].each do |option|
+      new_question.options << Option.create(text: option.last)
+    end
+    new_question.save
+    new_survey.questions << new_question
   end
 
-  new_question.save
-  new_survey.questions << new_question
-
   new_survey.save
-  new_survey
 
-  redirect "/next_question/#{new_survey.id}"
-  puts "======================================"
-  puts "New Survey: #{new_survey.inspect}"
-  puts "New Question: #{new_question.inspect}"
-  puts "New question's options: #{new_question.options.inspect}"
+
   puts "======================================"
 
+  # new_question = Question.new(text: params[:question])
+  
+  # params[:options].each_value do |option_text|
+  #   new_question.options << Option.create(text: option_text)
+  # end
+
+  # new_question.save
+  # new_survey.questions << new_question
+
+  # new_survey.save
+  # new_survey
+
+  # redirect "/next_question/#{new_survey.id}"
+  # puts "======================================"
+  # puts "New Survey: #{new_survey.inspect}"
+  # puts "New Question: #{new_question.inspect}"
+  # puts "New question's options: #{new_question.options.inspect}"
+  # puts "======================================"
 
 
-  # redirect to '/profile'
+
+  redirect to '/profile'
 end
 
 post '/create_question' do
