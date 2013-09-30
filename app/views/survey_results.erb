@@ -5,7 +5,7 @@
 <% @questions.each do |q|%>
 <table>
   <thead>
-    <th><%=q.text %></th>
+    <th><a href="/charts/<%=q.id %>"><%=q.text %></th>
     <%q.options.each do |o|%>
 
     <th># of times <%=o.text %> was chosen</th>
@@ -25,3 +25,4 @@
 
 
 </div>
+
