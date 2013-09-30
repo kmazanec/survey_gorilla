@@ -251,6 +251,10 @@ a .create_button:hover {
   float: right;
 }
 
+.new_question input:first-child {
+  background: #D5CDFF;
+}
+
 
 
 /* ===================== TABLES ========================== */
