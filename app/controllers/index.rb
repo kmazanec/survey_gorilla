@@ -104,10 +104,24 @@ post '/create_survey' do
 
   puts params.inspect
 
+  new_survey = Survey.new(name: params[:name], creator_id: session[:user_id])
+
+
+  params[:questions].each do |q|
+    puts "Question: #{q}"
+    new_question = Question.new(text: q.last)
+    params[:options][q.first].each do |option|
+      new_question.options << Option.create(text: option.last)
+    end
+    new_question.save
+    new_survey.questions << new_question
+  end
+
+  new_survey.save
+
+
   puts "======================================"
 
-
-  # new_survey = Survey.new(name: params[:name], creator_id: session[:user_id])
   # new_question = Question.new(text: params[:question])
   
   # params[:options].each_value do |option_text|
@@ -129,7 +143,7 @@ post '/create_survey' do
 
 
 
-  # redirect to '/profile'
+  redirect to '/profile'
 end
 
 post '/create_question' do

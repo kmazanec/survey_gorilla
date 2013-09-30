@@ -20,7 +20,7 @@ function checkQuestionComplete(){
   var any_selected = false;
 
   $(".current_question input").each(function(index, val) {
-     console.log( val );
+     console.log( val );3
      if ($(val).is(":checked")) {
       any_selected = true;
      }
@@ -107,31 +107,31 @@ $(document).ready(function() {
   })
 
   $("#survey").on("submit", function(event){
-    event.preventDefault();
     if ( checkQuestionComplete() ) {
       $("#incomplete_question_alert").hide();
     } else {
+      event.preventDefault();
       $("#incomplete_question_alert").show();
       return false;
     }
 
-    var formdata = $('#survey').serialize();
-    var url = $("#survey").attr("action");
+    // var formdata = $('#survey').serialize();
+    // var url = $("#survey").attr("action");
 
-    $.post(url, formdata, function(response){
-      console.log(response);
-      // NEED TO MAKE THE PAGE GO TO THE RIGHT PLACE
-      // DOES NOTHING RIGHT NOW
-    });
+    // $.post(url, formdata, function(response){
+    //   console.log(response);
+    //   // NEED TO MAKE THE PAGE GO TO THE RIGHT PLACE
+    //   // DOES NOTHING RIGHT NOW
+    // });
   })
 
 
   my_survey = new Survey();
 
-  $("#new_survey").on("submit", function(event){
-    event.preventDefault();
+  // $("#new_survey").on("submit", function(event){
+  //   event.preventDefault();
 
-  })
+  // })
 
   $("#add_question").on("click", function(event){
     event.preventDefault();
