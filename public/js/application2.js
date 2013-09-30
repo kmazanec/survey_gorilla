@@ -24,7 +24,7 @@ $(document).ready(function() {
 
 
     var data = [];
-    var n = 0;
+    var n = -1;
     jQuery.each(hats,function(){
       n++;
       data.push({ label: name_array[n], data:[this], bars:{show:true, barWidth:0.5}});
