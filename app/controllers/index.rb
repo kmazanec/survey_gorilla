@@ -66,6 +66,17 @@ get '/survey/:survey_id/results' do
   end
 end
 
+get '/charts/:id' do
+  @question=Question.find(params[:id])
+  # @options=@question.options
+
+  # @options.each do |o|
+
+  erb :chart
+end  
+
+
+
 
 # ====== POST ROUTES ========================
 
@@ -95,6 +106,9 @@ post '/survey/:survey_id' do
 
   redirect to "/survey/#{params[:survey_id]}/results"
 end
+
+
+
 
 
 
@@ -163,5 +177,45 @@ post '/create_question' do
   
 
 end  
+
+post '/fetch_results' do
+
+  question =Question.find_by_text(params[:data])
+   question
+
+  @options=question.options
+  hash={}
+  @options.each_with_index do |o,i|
+     hash[i] = o.choices.length
+  end
+
+content_type :json
+ hash.to_json
+
+end  
+
+
+post '/fetch_names' do
+  p  params[:data]
+
+  question =Question.find_by_text(params[:data])
+  @options=question.options
+  hash={}
+  @options.each_with_index do |o,i|
+     hash[i] = o.text
+  end
+  
+
+content_type :json
+ hash.to_json
+
+end
+
+
+
+
+
+
+
 
 
